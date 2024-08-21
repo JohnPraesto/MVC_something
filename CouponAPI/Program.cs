@@ -38,7 +38,7 @@ namespace CouponAPI
 
             //app.MapGet("/Hellosut23", () => "hello från minimal api");
 
-            app.MapGet("/api/coupon", () =>
+            app.MapGet("/api/coupons", () =>
             {
                 return Results.Ok(CouponStore.couponList);
             }).WithName("GetCoupons").Produces<IEnumerable<Coupon>>(200);
@@ -77,7 +77,12 @@ namespace CouponAPI
                 CouponDTO couponDTO = _mapper.Map<CouponDTO>(coupon2);
 
                 return Results.CreatedAtRoute("GetCoupon", new { id = coupon2.ID }, coupon2);
-            }).WithName("CreateCoupon").Produces<Coupon>(201).Accepts<Coupon>("application/json").Produces(400);
+            }).WithName("CreateCoupon").Produces<CouponCreateDTO>(201).Accepts<Coupon>("application/json").Produces(400);
+
+            app.MapPut("/api/coupon", (CouponUpdateDTO coupon_U_DTO) =>
+            {
+
+            });
 
             app.Run();
         }
