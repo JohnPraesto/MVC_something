@@ -9,14 +9,25 @@ namespace WebApplication1.Services
         {
             this._httpClientFactory = clientFactory;
         }
-        public Task<T> CreateCouponAsync<T>(CouponDTO couponDTO)
+        public async Task<T> CreateCouponAsync<T>(CouponDTO couponDTO)
         {
-            throw new NotImplementedException();
+            return await this.SendAsync<T>(new Models.ApiRequest
+            {
+                apiType = StaticDetails.ApiType.POST,
+                Data = couponDTO,
+                Url = StaticDetails.CouponApiBase + "/api/coupon",
+                AccessToken = ""
+            });
         }
 
-        public Task<T> DeleteCouponAsync<T>(int id)
+        public async Task<T> DeleteCouponAsync<T>(int id)
         {
-            throw new NotImplementedException();
+            return await this.SendAsync<T>(new Models.ApiRequest
+            {
+                apiType = StaticDetails.ApiType.DELETE,
+                Url = StaticDetails.CouponApiBase + "api/cupone/" + id,
+                AccessToken = ""
+            });
         }
 
         public Task<T> GetAllCoupons<T>()
@@ -34,13 +45,20 @@ namespace WebApplication1.Services
             return await this.SendAsync<T>(new Models.ApiRequest
             {
                 apiType = StaticDetails.ApiType.GET,
-                Url = StaticDetails.CouponApiBase + "/api/coupon/" + id
+                Url = StaticDetails.CouponApiBase + "/api/coupon/" + id,
+                AccessToken = ""
             });
         }
 
-        public Task<T> UpdateCouponAsync<T>(CouponDTO couponDTO)
+        public async Task<T> UpdateCouponAsync<T>(CouponDTO couponDTO)
         {
-            throw new NotImplementedException();
+            return await this.SendAsync<T>(new Models.ApiRequest
+            {
+                apiType = StaticDetails.ApiType.PUT,
+                Data = couponDTO,
+                Url = StaticDetails.CouponApiBase + "/api/coupon",
+                AccessToken = ""
+            });
         }
     }
 }

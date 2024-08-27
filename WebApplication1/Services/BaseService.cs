@@ -63,7 +63,7 @@ namespace WebApplication1.Services
             {
                 var dto = new ResponseDto
                 {
-                    DisplayMessage = "Ärror",
+                    DisplayMessage = "Ärror från BaseService-klassen",
                     ErrorMessages = new List<string>
                     {
                         Convert.ToString(e.Message)

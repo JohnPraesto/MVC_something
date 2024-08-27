@@ -1,3 +1,7 @@
+using CouponAPI.Repositories;
+using WebApplication1.Controllers;
+using WebApplication1.Services;
+
 namespace WebApplication1
 {
     public class Program
@@ -6,10 +10,15 @@ namespace WebApplication1
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // Add services to the container.     
             builder.Services.AddControllersWithViews();
+            //builder.Services.AddScoped<ICouponService, CouponService>();
 
-            StaticDetails.CouponApiBase = builder.Configuration["ServiceUrls:SUT23CouponAPI"];
+            //LÄGGER DITT MANUELL ADD SERVICES
+            builder.Services.AddScoped<ICouponService, CouponService>();
+            builder.Services.AddHttpClient();
+
+            StaticDetails.CouponApiBase = builder.Configuration["ServiceUrls:SUT23CouponAPI"]; // https://localhost:7044/ // måste va exakt samma som i appsettings
 
             var app = builder.Build();
 
