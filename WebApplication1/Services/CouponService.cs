@@ -25,7 +25,7 @@ namespace WebApplication1.Services
             return await this.SendAsync<T>(new Models.ApiRequest
             {
                 apiType = StaticDetails.ApiType.DELETE,
-                Url = StaticDetails.CouponApiBase + "api/cupone/" + id,
+                Url = StaticDetails.CouponApiBase + "/api/coupon/" + id,
                 AccessToken = ""
             });
         }

@@ -6,6 +6,8 @@ namespace CouponAPI.Models
     {
         [Key]
         public int ID { get; set; }
+        [Required]
+        [MaxLength(25)]
         public string Name { get; set; }
         public int Percent { get; set; }
         public bool IsActive { get; set; }

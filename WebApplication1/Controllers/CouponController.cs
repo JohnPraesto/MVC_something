@@ -95,7 +95,7 @@ namespace WebApplication1.Controllers
             return NotFound();
         }
 
-        [HttpPost]
+        [HttpPost] // mvc använder bara HttpPost (ej HttpDelete Put osv)
         public async Task<IActionResult> DeleteCoupon(CouponDTO model)
         {
             if (ModelState.IsValid)

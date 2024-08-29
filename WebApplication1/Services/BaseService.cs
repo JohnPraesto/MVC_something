@@ -20,10 +20,10 @@ namespace WebApplication1.Services
         {
             try
             {
-                var client = _httpClient.CreateClient("SUT-23-Coupon-Api");
+                var client = _httpClient.CreateClient("SUT23CouponApi");
                 HttpRequestMessage message = new HttpRequestMessage();
                 message.Headers.Add("Accept", "application/json");
-                message.RequestUri = new Uri(apiRequest.Url);
+                message.RequestUri = new Uri(apiRequest.Url); // fel här?
                 client.DefaultRequestHeaders.Clear();
 
                 if (apiRequest.Data != null)

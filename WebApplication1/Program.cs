@@ -18,7 +18,7 @@ namespace WebApplication1
             builder.Services.AddScoped<ICouponService, CouponService>();
             builder.Services.AddHttpClient();
 
-            StaticDetails.CouponApiBase = builder.Configuration["ServiceUrls:SUT23CouponAPI"]; // https://localhost:7044/ // måste va exakt samma som i appsettings
+            StaticDetails.CouponApiBase = builder.Configuration["ServiceUrls:SUT23CouponApi"]; // https://localhost:7044/ // måste va exakt samma som i appsettings
 
             var app = builder.Build();
 
